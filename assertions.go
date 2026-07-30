@@ -58,3 +58,10 @@ func CloseEnough[T Float](expected T, actual T, delta T, t *testing.T) {
 		t.Error()
 	}
 }
+
+func EqualStrings(expected string, actual string, t *testing.T) {
+	t.Helper()
+	if expected != actual {
+		t.Error()
+	}
+}
