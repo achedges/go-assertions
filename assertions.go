@@ -18,36 +18,42 @@ type Float interface {
 }
 
 func True(condition bool, t *testing.T) {
+	t.Helper()
 	if !condition {
 		t.Error()
 	}
 }
 
 func False(condition bool, t *testing.T) {
+	t.Helper()
 	if condition {
 		t.Error()
 	}
 }
 
 func EqualInts[T Int](expected T, actual T, t *testing.T) {
+	t.Helper()
 	if expected != actual {
 		t.Error()
 	}
 }
 
 func EqualUints[T UInt](expected T, actual T, t *testing.T) {
+	t.Helper()
 	if expected != actual {
 		t.Error()
 	}
 }
 
 func EqualFloats[T Float](expected T, actual T, t *testing.T) {
+	t.Helper()
 	if expected != actual {
 		t.Error()
 	}
 }
 
 func CloseEnough[T Float](expected T, actual T, delta T, t *testing.T) {
+	t.Helper()
 	if (math.Abs(float64(expected) - float64(actual))) > float64(delta) {
 		t.Error()
 	}
