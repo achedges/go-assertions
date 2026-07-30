@@ -29,26 +29,26 @@ func False(condition bool, t *testing.T) {
 	}
 }
 
-func EqualInts[T Int](a T, b T, t *testing.T) {
-	if a != b {
+func EqualInts[T Int](expected T, actual T, t *testing.T) {
+	if expected != actual {
 		t.Error()
 	}
 }
 
-func EqualUints[T UInt](a T, b T, t *testing.T) {
-	if a != b {
+func EqualUints[T UInt](expected T, actual T, t *testing.T) {
+	if expected != actual {
 		t.Error()
 	}
 }
 
-func EqualFloats[T Float](a T, b T, t *testing.T) {
-	if a != b {
+func EqualFloats[T Float](expected T, actual T, t *testing.T) {
+	if expected != actual {
 		t.Error()
 	}
 }
 
-func CloseEnough[T Float](a T, b T, delta T, t *testing.T) {
-	if (math.Abs(float64(a) - float64(b))) > float64(delta) {
+func CloseEnough[T Float](expected T, actual T, delta T, t *testing.T) {
+	if (math.Abs(float64(expected) - float64(actual))) > float64(delta) {
 		t.Error()
 	}
 }
