@@ -55,7 +55,7 @@ func EqualFloats[T Float](expected T, actual T, t *testing.T) {
 func CloseEnough[T Float](expected T, actual T, delta T, t *testing.T) {
 	t.Helper()
 	if (math.Abs(float64(expected) - float64(actual))) > float64(delta) {
-		t.Errorf("Expected %.6f (+/- %.6f), was %6.f", expected, delta, actual)
+		t.Errorf("Expected %.6f (+/- %.6f), was %.6f", expected, delta, actual)
 	}
 }
 
