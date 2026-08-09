@@ -20,48 +20,48 @@ type Float interface {
 func True(condition bool, t *testing.T) {
 	t.Helper()
 	if !condition {
-		t.Error()
+		t.Errorf("Expected %t, was %t", true, condition)
 	}
 }
 
 func False(condition bool, t *testing.T) {
 	t.Helper()
 	if condition {
-		t.Error()
+		t.Errorf("Expected %t, was %t", false, condition)
 	}
 }
 
 func EqualInts[T Int](expected T, actual T, t *testing.T) {
 	t.Helper()
 	if expected != actual {
-		t.Error()
+		t.Errorf("Expected %d, was %d", expected, actual)
 	}
 }
 
 func EqualUints[T UInt](expected T, actual T, t *testing.T) {
 	t.Helper()
 	if expected != actual {
-		t.Error()
+		t.Errorf("Expected %d, was %d", expected, actual)
 	}
 }
 
 func EqualFloats[T Float](expected T, actual T, t *testing.T) {
 	t.Helper()
 	if expected != actual {
-		t.Error()
+		t.Errorf("Expected %.6f, was %.6f", expected, actual)
 	}
 }
 
 func CloseEnough[T Float](expected T, actual T, delta T, t *testing.T) {
 	t.Helper()
 	if (math.Abs(float64(expected) - float64(actual))) > float64(delta) {
-		t.Error()
+		t.Errorf("Expected %.6f (+/- %.6f), was %6.f", expected, delta, actual)
 	}
 }
 
 func EqualStrings(expected string, actual string, t *testing.T) {
 	t.Helper()
 	if expected != actual {
-		t.Error()
+		t.Errorf("Expected [%s], was [%s]", expected, actual)
 	}
 }
